@@ -5,7 +5,7 @@ import { Link } from '@inertiajs/vue3'
 <template>
   <main>
     <header>
-      <Link href="/">Home</Link>
+      <Link href="/">Home</Link> | 
       <Link href="/customers/create">Create New Customer</Link>
     </header>
     <article>
