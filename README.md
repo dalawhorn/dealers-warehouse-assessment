@@ -11,8 +11,8 @@
 7. Run `php artisan migrate` to create the database tables.
 8. Run `php artisan db:seed` to create required database records.
 9. Run `php artisan key:generate`.
-9. Run `npm install`.
-10. Build assets and run the project using one of the below methods.
+10. Run `npm install`.
+11. Build assets and run the project using one of the below methods.
 
 ### Building Assests and Serving Project Using Laravel Valet
 Assuming you have [Laravel Valet](https://laravel.com/docs/11.x/valet) installed already. Run either `npm run build` or `npm run dev` then you should be able to navigate to the url named after the project directory. Most likely it will be `http://dealers-warehouse-assessment.test/`.
