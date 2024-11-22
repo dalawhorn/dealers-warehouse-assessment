@@ -21,15 +21,16 @@ class Customer extends Model
     ];
 
     public function businessType() {
-        return $this->hasOne(BusinessType::class);
+        return $this->belongsTo(BusinessType::class);
     }
 
     protected function phone(): Attribute
     {
         return Attribute::make(
-            // get: function(string $value){
-            //     
-            // },
+            get: function(string $value){
+                preg_match('/^(\d{3})(\d{3})(\d{4})/', $value, $matches);
+                return $matches[1].'-'.$matches[2].'-'.$matches[3];
+            },
             set: function(string $value){
                 return str_replace([' ', '-', '(', ')'], '', $value);
             },

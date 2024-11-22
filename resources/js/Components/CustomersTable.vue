@@ -21,7 +21,7 @@ defineProps({ customers: Array })
     </thead>
     <tbody>
         <tr v-for="customer in customers">
-            <td>{{ customer.name }}</td>
+            <td><Link :href="'/customers/' + customer.id">{{ customer.name }}</Link></td>
             <td>{{ customer.created_at }}</td>
             <td>
                 <Link :href="'/customers/' + customer.id + '/edit'">Edit</Link> | 

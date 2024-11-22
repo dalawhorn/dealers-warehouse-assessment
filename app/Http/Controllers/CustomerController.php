@@ -19,6 +19,15 @@ class CustomerController extends Controller
         ]);
     }
 
+    public function show($id) {
+        $customerData = Customer::with('businessType')->find($id);
+
+        return Inertia::render('Customer/Show', [
+            'customerData' => $customerData,
+            'businessType' => $customerData->businessType->name
+        ]);
+    }
+
     public function create() {
         $businessTypes = BusinessType::all();
 
