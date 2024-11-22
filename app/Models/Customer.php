@@ -47,4 +47,13 @@ class Customer extends Model
             },
         );
     }
+
+    protected function createdAt(): Attribute
+    {
+        return Attribute::make(
+            get: function(string $value){
+                return date('m/d/Y H:i:s', strtotime($value));
+            },
+        );
+    }
 }
