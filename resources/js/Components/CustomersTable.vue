@@ -1,5 +1,5 @@
 <script setup>
-// import { ref } from 'vue'
+import { Link } from '@inertiajs/vue3'
 
 defineProps({ customers: Array })
 </script>
@@ -24,7 +24,7 @@ defineProps({ customers: Array })
             <td>{{ customer.name }}</td>
             <td>{{ customer.created_at }}</td>
             <td>
-                <a href="">Edit</a> | 
+                <Link :href="'/customers/' + customer.id + '/edit'">Edit</Link> | 
                 <a href="">Delete</a>
             </td>
         </tr>

@@ -1,10 +1,13 @@
 <script setup>
-import { reactive } from 'vue'
 import { useForm } from '@inertiajs/vue3'
 
-defineProps({ businessTypes: Array })
+const props = defineProps({
+    businessTypes: Array,
+    formType: String,
+    customerData: Object
+})
 
-const form = useForm({
+let formData = {
   name: null,
   address_1: null,
   address_2: null,
@@ -15,12 +18,21 @@ const form = useForm({
   email: null,
   business_type_id: null,
   shipment_days: [],
-})
+};
+
+let submitUrl = '/customers';
+
+if (props.formType === "edit"){
+    submitUrl = submitUrl + "/" + props.customerData.id;
+    formData = props.customerData;
+}
+
+const form = useForm(formData);
 
 </script>
 
 <template>
-  <form @submit.prevent="form.post('/customers')">
+  <form @submit.prevent="form.post(submitUrl)">
     <div>
         <label for="name">Name:</label>
         <input id="name" v-model="form.name" />

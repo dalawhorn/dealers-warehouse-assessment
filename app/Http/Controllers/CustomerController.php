@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Customer;
 use App\Models\BusinessType;
+use App\Http\Requests\CustomerRequest;
 
 class CustomerController extends Controller
 {
@@ -26,24 +27,28 @@ class CustomerController extends Controller
         ]);
     }
 
-    public function store(Request $request) {
-        $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'address_1' => 'required',
-            'address_2' => 'nullable',
-            'city' => 'required',
-            'state' => 'required|max:2',
-            'zip' => 'required|size:5',
-            'phone' => 'required|regex:/^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/',
-            'business_type_id' => 'required',
-            'shipment_days' => 'required'
-        ],
-        [
-            'address_1.required' => 'The billing address field is required.'
-        ]);
-
+    public function store(CustomerRequest $request) {
+        $validated = $request->validated();
         Customer::create($validated);
+
+        return redirect('/');
+    }
+
+    public function edit(Request $request, $id) {
+        $businessTypes = BusinessType::all();
+        $customerData = Customer::find($id);
+
+        return Inertia::render('Customer/Edit', [
+            'businessTypes' => $businessTypes,
+            'customerData' => $customerData
+        ]);
+    }
+
+    public function update(CustomerRequest $request, $id) {
+        $validated = $request->validated();
+
+        $customer = Customer::find($id);
+        $customer->update($validated);
 
         return redirect('/');
     }
