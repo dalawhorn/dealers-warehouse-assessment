@@ -2,6 +2,8 @@
 import { reactive } from 'vue'
 import { useForm } from '@inertiajs/vue3'
 
+defineProps({ businessTypes: Array })
+
 const form = useForm({
   name: null,
   address_1: null,
@@ -9,9 +11,10 @@ const form = useForm({
   city: null,
   state: null,
   zip: null,
+  phone: null,
   email: null,
   business_type_id: null,
-  shipment_days: null,
+  shipment_days: [],
 })
 
 </script>
@@ -26,8 +29,8 @@ const form = useForm({
 
     <div>
         <label for="address_1">Billing Address:</label>
-        <input id="address" v-model="form.address" />
-        <div v-if="form.errors.address">{{ form.errors.address }}</div>
+        <input id="address_1" v-model="form.address_1" />
+        <div v-if="form.errors.address_1">{{ form.errors.address_1 }}</div>
         <br />
         <input id="address_2" v-model="form.address_2" />
         <div v-if="form.errors.address_2">{{ form.errors.address_2 }}</div>
@@ -65,13 +68,20 @@ const form = useForm({
 
     <div>
         <label for="business_type_id">Business Type:</label>
-        <input id="business_type_id" v-model="form.business_type_id" />
+        <select id="business_type_id" name="business_type_id"  v-model="form.business_type_id">
+            <option>Select...</option>
+            <option v-for="businessType in businessTypes" :value=businessType.id>{{ businessType.name }}</option>
+        </select>
         <div v-if="form.errors.business_type_id">{{ form.errors.business_type_id }}</div>
     </div>
 
     <div>
-        <label for="shipment_days">Shipment Days:</label>
-        <input id="shipment_days" v-model="form.shipment_days" />
+        <label>Shipment Days:</label>
+        <label><input v-model="form.shipment_days" name="shipment_days[]" type="checkbox" value="M" /> Monday</label>
+        <label><input v-model="form.shipment_days" name="shipment_days[]" type="checkbox" value="T" /> Tuesday</label>
+        <label><input v-model="form.shipment_days" name="shipment_days[]" type="checkbox" value="W" /> Wednesday</label>
+        <label><input v-model="form.shipment_days" name="shipment_days[]" type="checkbox" value="R" /> Thursday</label>
+        <label><input v-model="form.shipment_days" name="shipment_days[]" type="checkbox" value="F" /> Friday</label>
         <div v-if="form.errors.shipment_days">{{ form.errors.shipment_days }}</div>
     </div>
     

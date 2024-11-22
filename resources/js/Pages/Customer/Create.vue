@@ -3,7 +3,7 @@ import Layout from '../Layout.vue'
 import { Head, Link } from '@inertiajs/vue3'
 import CustomerForm from '../../Components/CustomerForm.vue'
 
-defineProps({ customers: Array })
+defineProps({ businessTypes: Array })
 </script>
 
 <template>
@@ -11,7 +11,7 @@ defineProps({ customers: Array })
     <Head title="Customers" />
     <h1>New Customer</h1>
 
-    <CustomerForm />
+    <CustomerForm :businessTypes=businessTypes />
 
   </Layout>
 </template>

@@ -20,13 +20,9 @@ defineProps({ customers: Array })
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                <a href="">Test Co.</a>
-            </td>
-            <td>
-                1/1/2024
-            </td>
+        <tr v-for="customer in customers">
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.created_at }}</td>
             <td>
                 <a href="">Edit</a> | 
                 <a href="">Delete</a>
