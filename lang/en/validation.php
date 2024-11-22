@@ -176,6 +176,9 @@ return [
         'address_1' => [
             'required' => 'The billing address field is required.',
         ],
+        'business_type_id' => [
+            'required' => 'The business type field is required.'
+        ]
     ],
 
     /*
