@@ -6,11 +6,13 @@
 2. Create a `.env` file in the project using the `.env.example` file as a starting point
 3. Update the `DB_*` env vars to reflect your local database connection. I used a MySQL database during development.
 4. Create a database for the project. I called mine "dealers_warehouse_assessment", but you can use whatever you'd like.
-5. In a terminal navigate to the project directory
+5. In a terminal navigate to the project directory.
 6. Run `composer install` to install all composer packages and dependencies.
 7. Run `php artisan migrate` to create the database tables.
 8. Run `php artisan db:seed` to create required database records.
-9. Build assets and run the project using one of the below methods.
+9. Run `php artisan key:generate`.
+9. Run `npm install`.
+10. Build assets and run the project using one of the below methods.
 
 ### Building Assests and Serving Project Using Laravel Valet
 Assuming you have [Laravel Valet](https://laravel.com/docs/11.x/valet) installed already. Run either `npm run build` or `npm run dev` then you should be able to navigate to the url named after the project directory. Most likely it will be `http://dealers-warehouse-assessment.test/`.
