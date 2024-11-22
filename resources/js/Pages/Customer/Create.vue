@@ -9,7 +9,7 @@ defineProps({ businessTypes: Array })
 <template>
   <Layout>
     <Head title="Customers" />
-    <h1>New Customer</h1>
+    <h1 class="text-2xl text-stone-950 pb-4">New Customer</h1>
 
     <CustomerForm :businessTypes=businessTypes />
 

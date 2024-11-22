@@ -29,11 +29,11 @@ const doDelete = (event, customerId, customerName) => {
     </thead>
     <tbody>
         <tr v-for="customer in customers">
-            <td><Link :href="'/customers/' + customer.id">{{ customer.name }}</Link></td>
-            <td>{{ customer.created_at }}</td>
-            <td>
-                <Link :href="'/customers/' + customer.id + '/edit'">Edit</Link> | 
-                <button @click="(event) => doDelete(event, customer.id, customer.name)">Delete</button>
+            <td class="p-2"><Link class="underline text-blue-900" :href="'/customers/' + customer.id">{{ customer.name }}</Link></td>
+            <td class="p-2">{{ customer.created_at }}</td>
+            <td class="p-2">
+                <Link class="underline text-blue-900" :href="'/customers/' + customer.id + '/edit'">Edit</Link> | 
+                <button class="underline text-blue-900" @click="(event) => doDelete(event, customer.id, customer.name)">Delete</button>
             </td>
         </tr>
     </tbody>

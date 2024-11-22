@@ -4,11 +4,11 @@ import { Link } from '@inertiajs/vue3'
 
 <template>
   <main>
-    <header>
-      <Link href="/">Home</Link> | 
-      <Link href="/customers/create">Create New Customer</Link>
+    <header class="p-4">
+      <Link class="underline text-blue-900" href="/">Home</Link> | 
+      <Link class="underline text-blue-900" href="/customers/create">Create New Customer</Link>
     </header>
-    <article>
+    <article class="p-4">
       <slot />
     </article>
   </main>

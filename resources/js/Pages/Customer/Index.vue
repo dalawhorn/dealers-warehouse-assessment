@@ -9,7 +9,7 @@ defineProps({ customers: Array })
 <template>
   <Layout>
     <Head title="Customers" />
-    <h1>Customers</h1>
+    <h1 class="text-2xl text-stone-950 pb-4">Customers</h1>
 
     <div v-if="customers.length > 0">
         <CustomersTable :customers=customers />

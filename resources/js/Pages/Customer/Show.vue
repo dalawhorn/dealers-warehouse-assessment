@@ -36,16 +36,16 @@ const getShipmentDays = () => {
 <template>
   <Layout>
     <Head title="Customers" />
-    <h1>View Customer</h1>
+    <h1 class="text-2xl text-stone-950 pb-4">View Customer</h1>
 
     <table>
       <tbody>
         <tr>
-          <td>Name: </td>
+          <td class="font-bold">Name: </td>
           <td>{{ customerData.name}}</td>
         </tr>
         <tr>
-          <td>Billing Address: </td>
+          <td class="font-bold">Billing Address: </td>
           <td>
             {{ customerData.address_1}}
             {{ customerData.address_2 }}
@@ -53,19 +53,19 @@ const getShipmentDays = () => {
           </td>
         </tr>
         <tr>
-          <td>Phone: </td>
+          <td class="font-bold">Phone: </td>
           <td>{{ customerData.phone}}</td>
         </tr>
         <tr>
-          <td>Email: </td>
+          <td class="font-bold">Email: </td>
           <td>{{ customerData.email}}</td>
         </tr>
         <tr>
-          <td>Type of Business: </td>
+          <td class="font-bold">Type of Business: </td>
           <td>{{ businessType }}</td>
         </tr>
         <tr>
-          <td>Preferred Days of Receiving Shipments: </td>
+          <td class="font-bold">Preferred Days of Receiving Shipments: </td>
           <td>{{ getShipmentDays() }}</td>
         </tr>
       </tbody>
