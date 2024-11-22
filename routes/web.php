@@ -11,5 +11,6 @@ Route::controller(CustomerController::class)->group(function () {
        Route::post('/', 'store');
        Route::get('{id}/edit', 'edit');
        Route::post('{id}', 'update');
+       Route::delete('{id}', 'destroy');
     });
 });

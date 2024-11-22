@@ -1,7 +1,15 @@
 <script setup>
-import { Link } from '@inertiajs/vue3'
+import { Link, router } from '@inertiajs/vue3'
 
 defineProps({ customers: Array })
+
+const doDelete = (event, customerId, customerName) => {
+    if (!window.confirm("Are you sure you want to delete " + customerName + "?")) {
+        return event.preventDefault();
+    }
+
+    router.delete('/customers/' + customerId);
+}
 </script>
 
 <template>
@@ -25,7 +33,7 @@ defineProps({ customers: Array })
             <td>{{ customer.created_at }}</td>
             <td>
                 <Link :href="'/customers/' + customer.id + '/edit'">Edit</Link> | 
-                <a href="">Delete</a>
+                <button @click="(event) => doDelete(event, customer.id, customer.name)">Delete</button>
             </td>
         </tr>
     </tbody>

@@ -61,4 +61,12 @@ class CustomerController extends Controller
 
         return redirect('/');
     }
+
+    public function destroy($id) {
+        $customer = Customer::find($id);
+
+        $customer->delete();
+        
+        return redirect('/');
+    }
 }
