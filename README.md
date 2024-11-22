@@ -22,6 +22,3 @@ In the terminal run `npm run build` then run `php artisan serve`. The serve comm
 
 ## Database File
 If you don't want to run the migrations and seeders to setup the database you can use [this SQL file](https://github.com/dalawhorn/dealers-warehouse-assessment/blob/main/dealers_warehouse_assessment_2024-11-22.sql).
-
-## Potential Issues
-If Laravel throws an error after installing related to the app key you may need to run `php artisan key:generate` 
