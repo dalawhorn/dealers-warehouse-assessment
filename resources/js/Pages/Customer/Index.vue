@@ -15,7 +15,7 @@ defineProps({ customers: Array })
         <CustomersTable :customers=customers />
     </div>
     <div v-else>
-        You currently have no customers. <Link href="/customers/create">Create New Customer</Link>
+        You currently have no customers. <Link class="underline text-blue-900" href="/customers/create">Create New Customer</Link>
     </div>
 
   </Layout>
